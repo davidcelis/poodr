@@ -116,7 +116,7 @@ class ObscuringReferences
 end
 
 ############## Page 27 ##############
-# rim and tire sizes (now in milimeters!) in a 2d array
+# rim and tire sizes (now in millimeters!) in a 2d array
 @data = [[622, 20], [622, 23], [559, 30], [559, 40]]
 
 ############## Page 28 ##############
