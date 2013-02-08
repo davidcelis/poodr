@@ -14,7 +14,7 @@ end
 # it works
 class Mechanic
   def prepare_bicycles(bicycles)
-    bicycles.each {|bicycle| prepare_bicycle(bicycle)}
+    bicycles.each { |bicycle| prepare_bicycle(bicycle) }
   end
 
   def prepare_bicycle(bicycle)
@@ -28,7 +28,7 @@ class Trip
   attr_reader :bicycles, :customers, :vehicle
 
   def prepare(preparers)
-    preparers.each {|preparer|
+    preparers.each do |preparer|
       case preparer
       when Mechanic
         preparer.prepare_bicycles(bicycles)
@@ -38,7 +38,7 @@ class Trip
         preparer.gas_up(vehicle)
         preparer.fill_water_tank(vehicle)
       end
-    }
+    do
   end
 end
 
@@ -65,8 +65,7 @@ class Trip
   attr_reader :bicycles, :customers, :vehicle
 
   def prepare(preparers)
-    preparers.each {|preparer|
-      preparer.prepare_trip(self)}
+    preparers.each {|preparer| preparer.prepare_trip(self) }
   end
 end
 
@@ -74,8 +73,7 @@ end
 # that responds to 'prepare_trip'
 class Mechanic
   def prepare_trip(trip)
-    trip.bicycles.each {|bicycle|
-      prepare_bicycle(bicycle)}
+    trip.bicycles.each { |bicycle| prepare_bicycle(bicycle) }
   end
 
   # ...
@@ -103,7 +101,7 @@ class Trip
   attr_reader :bicycles, :customers, :vehicle
 
   def prepare(preparers)
-    preparers.each {|preparer|
+    preparers.each do |preparer|
       case preparer
       when Mechanic
         preparer.prepare_bicycles(bicycles)
@@ -113,7 +111,7 @@ class Trip
         preparer.gas_up(vehicle)
         preparer.fill_water_tank(vehicle)
       end
-    }
+    end
   end
 end
 
@@ -143,8 +141,7 @@ end
 # method as you can to <tt>find(:first)</tt>.
 def first(*args)
   if args.any?
-    if args.first.kind_of?(Integer) ||
-         (loaded? && !args.first.kind_of?(Hash))
+    if args.first.kind_of?(Integer) || (loaded? && !args.first.kind_of?(Hash))
       to_a.first(*args)
     else
       apply_finder_options(args.first).first
